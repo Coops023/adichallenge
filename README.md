@@ -1,29 +1,15 @@
-# README #
+**Docker compose to run the products services all in one**
 
-This README would normally document whatever steps are necessary to get your application up and running.
+It runs a mongo db, product service and price engine after running the following command.
 
-### What is this repository for? ###
+`docker-compose up`
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+In order to create some sample data you just need to run the init.sh script located inside of the postman folder.
 
-### How do I get set up? ###
+`sh postman/init.sh`
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+If you experience problems with this, you only need to install newman and execute the script.
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+`npm install -g newman
+newman run Initial\ Data.postman_collection.json -d products.json
+`
