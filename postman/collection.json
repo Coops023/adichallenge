@@ -20,10 +20,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3001/product",
+					"raw": "http://products:3001/product",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"products"
 					],
 					"port": "3001",
 					"path": [
@@ -66,10 +66,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3002/reviews/{{id}}",
+					"raw": "http://products-review:3002/reviews/{{id}}",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"products-review"
 					],
 					"port": "3002",
 					"path": [
@@ -113,10 +113,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3002/reviews/{{id}}",
+					"raw": "http://products-review:3002/reviews/{{id}}",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"products-review"
 					],
 					"port": "3002",
 					"path": [
@@ -160,10 +160,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3002/reviews/{{id}}",
+					"raw": "http://products-review:3002/reviews/{{id}}",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"products-review"
 					],
 					"port": "3002",
 					"path": [
@@ -207,10 +207,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3002/reviews/{{id}}",
+					"raw": "http://products-review:3002/reviews/{{id}}",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"products-review"
 					],
 					"port": "3002",
 					"path": [
@@ -254,10 +254,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3002/reviews/{{id}}",
+					"raw": "http://products-review:3002/reviews/{{id}}",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"products-review"
 					],
 					"port": "3002",
 					"path": [
@@ -301,10 +301,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3002/reviews/{{id}}",
+					"raw": "http://products-review:3002/reviews/{{id}}",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"products-review"
 					],
 					"port": "3002",
 					"path": [
@@ -348,10 +348,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3002/reviews/{{id}}",
+					"raw": "http://products-review:3002/reviews/{{id}}",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"products-review"
 					],
 					"port": "3002",
 					"path": [

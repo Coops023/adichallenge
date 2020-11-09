@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   products:
-    image: adichallenge/adichallenge:product-service
+    image: adichallenge/adichallenge:products-service-reviews
     restart : always
     links :
         - mongo
@@ -12,7 +12,7 @@ services:
     image: "adichallenge/adichallenge:product-engine"
     ports:
         - "3000:3000"
-  products-reviews:
+  products-review:
     container_name: products-review
     image: "adichallenge/adichallenge:products-review"
     links :
@@ -24,3 +24,15 @@ services:
     image: mongo
     ports:
         - "27017:27017"
+  newman:
+    image: postman/newman_alpine33
+    depends_on:
+      - products
+      - mongo
+      - price-engine
+      - products-review
+    links:
+      - products
+    volumes:
+      - './postman:/home'
+    command: run /home/collection.json -d /home/products.json
