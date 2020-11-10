@@ -28,11 +28,10 @@ services:
     image: postman/newman_alpine33
     depends_on:
       - products
-      - mongo
-      - price-engine
       - products-review
     links:
       - products
+      - products-review
     volumes:
       - './postman:/home'
     command: run /home/collection.json -d /home/products.json
