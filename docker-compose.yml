@@ -1,5 +1,12 @@
 version: "3.8"
 services:
+  db:
+    container_name: db
+    image: mongo:latest
+    volumes:
+      - './data:/data/db'
+    ports:
+        - "27017:27017"
   products:
     image: adichallenge/products-service-review:1.0
     restart : always
@@ -19,13 +26,6 @@ services:
         - db
     ports:
         - "3002:3002"
-  db:
-    container_name: db
-    image: mongo:latest
-    volumes:
-      - './data:/data/db'
-    ports:
-        - "27017:27017"
   # newman:
   #   image: postman/newman_alpine33
   #   depends_on:
