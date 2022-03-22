@@ -1,6 +1,6 @@
-**Docker compose to run the products services all in one**
+**Instructions to install and run**
 
-It runs a mongo db, product service and price engine after running the following command.
+
 
 `docker-compose up`
 
