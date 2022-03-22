@@ -1,0 +1,39 @@
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  width: 80%;
+  margin: auto;
+  max-width: 1000px;
+}
+
+.product-img {
+  width: 10em;
+}
+
+.pagination-btns {
+  width: 80%;
+
+  list-style: none;
+  display: flex;
+
+  margin: auto;
+  max-width: 1000px;
+}
+
+.pagination-btns a {
+  /* added important to the color selector as the next-btn was not being selected without */
+  color: black !important;
+  text-decoration: none;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.pagination-btns a:hover {
+  background-color: #e0e2db;
+}
+.pagination-active {
+  background-color: #e0e2db;
+}
