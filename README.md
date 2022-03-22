@@ -1,9 +1,13 @@
 **Instructions to install and run**
 
+git clone this repository onto your machine
+`git clone https://github.com/Coops023/adichallenge.git`
 
+ensure you have docker installed and run `docker-compose up` in root directory 
 
-`docker-compose up`
+then `cd challenge` to change diretory to the react-app
+then `npm install` to install dependecies 
+then `npm run start` to start the react-app
 
-This will create also some dummy data, in order to see how this get's created just check postman folder.
+This will let you use the app and the api locally
 
-You'll find there the collection that is run.
