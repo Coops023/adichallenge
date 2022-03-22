@@ -35,18 +35,19 @@ export default function ProductList() {
       });
   }, []);
 
-  // displayItems is used to paginate the products that are fetched from the api
+  // displayItems is used in the pagination of the products that are fetched from the api
   const displayItems = items
     .slice(pagesVisited, pagesVisited + itemsPerPage)
     .map((item) => {
       return (
         <ProductCard key={item.id}>
-          <Link to={`/product/${item.id}`}>
+          <Link className="product-link" to={`/product/${item.id}`}>
             <img className="product-img" src={item.imgUrl} alt="product" />
-            <p>{item.name}</p>
+            <div className="price-name-wrap">
+              <p className="product-text">{item.name}</p>
+              <p className="product-text">${item.price}</p>
+            </div>
           </Link>
-          <p>{item.description}</p>
-          <p>${item.price}</p>
         </ProductCard>
       );
     });

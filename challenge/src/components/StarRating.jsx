@@ -6,6 +6,7 @@ export default function StarRating(props) {
     // console.log(newRating);
     props.starValue(newRating);
   };
+
   return (
     <ReactStars
       count={5}

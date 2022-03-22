@@ -1,4 +1,24 @@
 .product-details-container {
   height: 100vh;
-  border: 1px solid black;
+  width: 85%;
+  margin: auto;
+  text-align: left;
+}
+
+.name-price-wrap {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-text {
+  text-transform: uppercase;
+}
+
+.lorem {
+  width: 90%;
+}
+
+.product-img {
+  width: 20em;
 }

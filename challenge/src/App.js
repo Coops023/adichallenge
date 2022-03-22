@@ -14,7 +14,6 @@ function App() {
         <Route exact path="/" element={<ProductList />} />
         <Route exact path={`/product/:id`} element={<ProductDetails />} />
       </Routes>
-      <Footer />
     </div>
   );
 }

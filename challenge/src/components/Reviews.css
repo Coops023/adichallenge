@@ -1,0 +1,49 @@
+.review-heading {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.review-container {
+  height: 100%;
+}
+
+.review-card {
+  margin-top: 1em;
+}
+
+.rating-container p {
+  text-transform: uppercase;
+}
+.review-title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.pagination-review {
+  width: 80%;
+  margin-top: 2em;
+  padding: 0;
+  height: 25px;
+  list-style: none;
+  display: flex;
+}
+
+.pagination-review a {
+  /* added important to the color selector as the next-btn was not being selected without */
+  color: black;
+  text-decoration: none;
+  padding: 4px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.pagination-review a:hover {
+  background-color: #e0e2db;
+}
+.pagination-active {
+  background-color: #e0e2db;
+}
+
+.star-icon {
+  color: #ffb703;
+}

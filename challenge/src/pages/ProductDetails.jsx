@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import "./ProductDetails.css";
 
 import { useParams } from "react-router-dom";
-import CreateReview from "../components/CreateReview";
-import StarRating from "../components/StarRating";
 import Reviews from "../components/Reviews";
 
 export default function ProductDetails() {
@@ -37,7 +35,21 @@ export default function ProductDetails() {
   } else {
     return (
       <div className="product-details-container">
-        <img src={item.imgUrl} alt="" />
+        <img className="product-img" src={item.imgUrl} alt="product" />
+        <div className="name-price-wrap">
+          <p className="product-text">{item.name}</p>
+          <p className="product-text">
+            {item.currency}
+            {item.price}
+          </p>
+        </div>
+        <h5 className="product-text">{item.description}</h5>
+        <p className="lorem">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Necessitatibus reprehenderit molestias maxime nam quisquam dicta
+          facere blanditiis sequi et. Laboriosam accusantium ut deserunt fugit
+          ea atque ducimus blanditiis, nemo ullam.
+        </p>
 
         <Reviews />
       </div>
