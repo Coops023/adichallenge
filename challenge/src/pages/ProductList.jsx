@@ -21,7 +21,7 @@ export default function ProductList() {
       .get(`/api1/product`)
       .then((response) => {
         //the data set provided from the API gave duplicates, so here i have created a variable called uniqueItems which returns an array of objects without duplicates
-        // console.log("response", response.data);
+        console.log("response", response.data);
         const uniqueItems = [
           ...new Map(
             response.data.map((item) => [JSON.stringify(item), item])
@@ -61,7 +61,13 @@ export default function ProductList() {
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return (
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only"></span>
+        </div>
+      </div>
+    );
   } else {
     return (
       <>

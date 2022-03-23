@@ -11,6 +11,7 @@ export default function Reviews(props) {
   const { id } = useParams();
   const [reviews, setReviews] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   const [rating, setRating] = useState(0);
   const [text, setText] = useState("");
@@ -29,6 +30,15 @@ export default function Reviews(props) {
     });
   }, []);
 
+  const showFormHandler = (e) => {
+    e.preventDefault();
+    if (!showForm) {
+      setShowForm(true);
+    } else {
+      setShowForm(false);
+    }
+  };
+
   const formSubmitHandler = async (e) => {
     e.preventDefault();
     const requestBody = { productId, locale, rating, text };
@@ -36,21 +46,21 @@ export default function Reviews(props) {
 
     await axios.post(`/api2/reviews/${productId}`, requestBody);
     axios.get(`/api2/reviews/${id}`).then((response) => {
-      console.log("response from review API", response);
+      // console.log("response from review API", response);
       setReviews(response.data);
-
+      showFormHandler(e);
       setIsLoaded(true);
     });
   };
 
   const displayReviews = reviews
     .slice(pagesVisited, pagesVisited + reviewsPerPage)
-    .map((review) => {
+    .map((review, index) => {
       return (
-        <div className="review-card">
+        <div key={index} className="review-card">
           <div>{review.text}</div>
-          {new Array(review.rating).fill(null).map(() => (
-            <FontAwesomeIcon className="star-icon" icon={faStar} />
+          {new Array(review.rating).fill(null).map((star, index) => (
+            <FontAwesomeIcon key={index} className="star-icon" icon={faStar} />
           ))}
         </div>
       );
@@ -75,10 +85,14 @@ export default function Reviews(props) {
       <div>
         {!isLoaded ? (
           <>
-            <div>loading</div>
+            <div class="d-flex justify-content-center">
+              <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+              </div>
+            </div>
           </>
         ) : reviews.length === 0 ? (
-          <div>No reviews for this product</div>
+          <div className="no-review-text">No reviews for this product</div>
         ) : (
           <div className="review-container">
             <h5 className="review-heading">Reviews</h5>
@@ -99,6 +113,8 @@ export default function Reviews(props) {
         )}
       </div>
       <CreateReview
+        showForm={showForm}
+        showFormHandler={showFormHandler}
         ratingChangeHandler={ratingChangeHandler}
         textChangeHandler={textChangeHandler}
         formSubmitHandler={formSubmitHandler}

@@ -5,33 +5,28 @@ import "./CreateReview.css";
 import StarRating from "./StarRating";
 
 export default function CreateReview(props) {
-  const [showForm, setShowForm] = useState(false);
-
-  const showFormHandler = (e) => {
-    e.preventDefault();
-    if (!showForm) {
-      setShowForm(true);
-    } else {
-      setShowForm(false);
-    }
-  };
-
   const starValueHandler = (number) => {
     props.ratingChangeHandler(number);
   };
 
   return (
     <div>
-      {!showForm ? (
+      {!props.showForm ? (
         <form>
-          <button className="review-button" onClick={showFormHandler}>
+          <button className="review-button" onClick={props.showFormHandler}>
             Leave a review
           </button>
         </form>
       ) : (
         <>
+          <button
+            className="review-review-button"
+            onClick={props.showFormHandler}
+          >
+            Cancel
+          </button>
           <StarRating starValue={starValueHandler} />
-          <button onClick={showFormHandler}>Cancel</button>
+
           <form onSubmit={props.formSubmitHandler}>
             <div className="review-input">
               <label for="text">New Review</label>
