@@ -1,0 +1,26 @@
+.header-background {
+  background-image: url("../assets/header-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: -10em;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 20em;
+}
+
+.heading-main {
+  text-transform: lowercase;
+  font-family: a;
+}
+
+.adidas-header-text {
+  width: 10em;
+}
+
+.p-main {
+  color: rgba(16, 16, 16, 0.7);
+}

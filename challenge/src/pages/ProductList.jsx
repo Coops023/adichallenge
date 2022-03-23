@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import "./ProductList.css";
 import ReactPaginate from "react-paginate";
+import Hero from "../components/Hero";
 
 export default function ProductList() {
   const [error, setError] = useState(null);
@@ -40,15 +41,17 @@ export default function ProductList() {
     .slice(pagesVisited, pagesVisited + itemsPerPage)
     .map((item) => {
       return (
-        <ProductCard key={item.id}>
-          <Link className="product-link" to={`/product/${item.id}`}>
-            <img className="product-img" src={item.imgUrl} alt="product" />
-            <div className="price-name-wrap">
-              <p className="product-text">{item.name}</p>
-              <p className="product-text">${item.price}</p>
-            </div>
-          </Link>
-        </ProductCard>
+        <>
+          <ProductCard key={item.id}>
+            <Link className="product-link" to={`/product/${item.id}`}>
+              <img className="product-img" src={item.imgUrl} alt="product" />
+              <div className="price-name-wrap">
+                <p className="product-text">{item.name}</p>
+                <p className="product-text">${item.price}</p>
+              </div>
+            </Link>
+          </ProductCard>
+        </>
       );
     });
 
@@ -71,6 +74,8 @@ export default function ProductList() {
   } else {
     return (
       <>
+        <Hero />
+        <h3 className="the-best-h3">The best from adidas</h3>
         <div className="card-container">{displayItems}</div>
         <ReactPaginate
           previousLabel={"Previous"}
