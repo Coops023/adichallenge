@@ -1,11 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import "./ProductDetails.css";
 
 import { useParams } from "react-router-dom";
 import Reviews from "../components/Reviews";
 
 export default function ProductDetails() {
+  const navigate = useNavigate();
+
   //  use the `useParams` hook here to access
   // the dynamic pieces of the URL.
   const { id } = useParams();
@@ -40,23 +43,31 @@ export default function ProductDetails() {
     );
   } else {
     return (
-      <div className="product-details-container">
-        <img className="product-img" src={item.imgUrl} alt="product" />
-        <div className="name-price-wrap">
-          <p className="product-text">{item.name}</p>
-          <p className="product-text">
-            {item.currency}
-            {item.price}
-          </p>
+      <div className="product-details-content">
+        <Link className="go-back" onClick={() => navigate(-1)} to="#">
+          Go Back
+        </Link>
+        <div className="product-details-container">
+          <img className="product-img" src={item.imgUrl} alt="product" />
+          <div className="detail-text-wrap">
+            <div className="name-price-wrap">
+              <p className="product-text">{item.name}</p>
+              <p className="product-text">
+                {item.currency}
+                {item.price}
+              </p>
+            </div>
+            <div className="description-wrap">
+              <h5 className="product-text">{item.description}</h5>
+              <p className="lorem">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Necessitatibus reprehenderit molestias maxime nam quisquam dicta
+                facere blanditiis sequi et. Laboriosam accusantium ut deserunt
+                fugit ea atque ducimus blanditiis, nemo ullam.
+              </p>
+            </div>
+          </div>
         </div>
-        <h5 className="product-text">{item.description}</h5>
-        <p className="lorem">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Necessitatibus reprehenderit molestias maxime nam quisquam dicta
-          facere blanditiis sequi et. Laboriosam accusantium ut deserunt fugit
-          ea atque ducimus blanditiis, nemo ullam.
-        </p>
-
         <Reviews />
       </div>
     );

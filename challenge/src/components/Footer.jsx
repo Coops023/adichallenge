@@ -1,10 +1,14 @@
 import React from "react";
 import "./Footer.css";
+
 export default function Footer() {
   return (
-    <div className="footer">
-      <img src="/adidas-logo.png" alt="adidas-logo" width="70" height="50" />
-      <p>Created by Cooper Bjorkelund</p>
-    </div>
+    <nav className="navbar   navbar-expand-lg navbar-dark footer">
+      <div className="container-md">
+        <a className="navbar-brand" href="#">
+          By Cooper Bjorkelund
+        </a>
+      </div>
+    </nav>
   );
 }

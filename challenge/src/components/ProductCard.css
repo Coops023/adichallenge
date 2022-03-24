@@ -23,5 +23,12 @@
   font-size: 0.8em;
 }
 
-@media screen and (min-width: 360px) {
+@media screen and (min-width: 800px) {
+  .product-card {
+    width: 17em;
+  }
+
+  .price-name-wrap {
+    width: 20em;
+  }
 }

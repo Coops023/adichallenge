@@ -81,16 +81,14 @@ export default function Reviews(props) {
   };
 
   return (
-    <>
+    <div className="review-list-container">
       <div>
         {!isLoaded ? (
-          <>
-            <div class="d-flex justify-content-center">
-              <div class="spinner-border" role="status">
-                <span class="sr-only"></span>
-              </div>
+          <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+              <span class="sr-only"></span>
             </div>
-          </>
+          </div>
         ) : reviews.length === 0 ? (
           <div className="no-review-text">No reviews for this product</div>
         ) : (
@@ -120,6 +118,6 @@ export default function Reviews(props) {
         formSubmitHandler={formSubmitHandler}
         productId={id}
       />
-    </>
+    </div>
   );
 }

@@ -1,3 +1,7 @@
+review-list-container {
+  height: 50vh;
+}
+
 .review-heading {
   text-transform: uppercase;
   font-weight: bold;
@@ -5,6 +9,16 @@
 
 .review-container {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin-left: 6%;
+}
+
+.no-review-text {
+  text-align: left;
+  margin-left: 1.8em;
 }
 
 .review-card {
@@ -48,3 +62,20 @@
   /* color: #ffb703; */
   color: black;
 }
+@media screen and (min-width: 768px) {
+}
+
+/* @media screen and (min-width: 820px) {
+  .review-card {
+    text-align: left;
+    margin-left: 4.2em;
+  }
+  .review-heading {
+    text-align: left;
+    margin-left: 3.2em;
+  }
+
+  .pagination-review {
+    margin-left: 4em;
+  }
+} */

@@ -10,27 +10,28 @@ export default function CreateReview(props) {
   };
 
   return (
-    <div>
+    <div className="create-review-container">
       {!props.showForm ? (
-        <form>
+        <form className="review-btn-form">
           <button className="review-button" onClick={props.showFormHandler}>
             Leave a review
           </button>
         </form>
       ) : (
-        <>
-          <button
-            className="review-review-button"
-            onClick={props.showFormHandler}
-          >
-            Cancel
-          </button>
-          <StarRating starValue={starValueHandler} />
-
+        <div className="create-review-form-wrap">
+          <div className="cancel-star-wrap">
+            <button
+              className="review-review-button"
+              onClick={props.showFormHandler}
+            >
+              Cancel
+            </button>
+            <StarRating starValue={starValueHandler} />
+          </div>
           <form onSubmit={props.formSubmitHandler}>
             <div className="review-input">
-              <label for="text">New Review</label>
               <input
+                className="review-input-field"
                 onChange={props.textChangeHandler}
                 name="text"
                 type="text"
@@ -43,7 +44,7 @@ export default function CreateReview(props) {
               Submit Review
             </button>
           </form>
-        </>
+        </div>
       )}
     </div>
   );
