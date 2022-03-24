@@ -5,7 +5,7 @@ git clone this repository onto your machine
 
 ensure you have docker installed and run `docker-compose up` in root directory 
 
-`cd challenge` to change diretory to the react-app.
+`cd challenge` to change directory to the react-app.
 
 `npm install` to install dependecies. 
 
