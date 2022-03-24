@@ -7,6 +7,21 @@
   margin: 2em auto;
   max-width: 1750px;
 }
+.error {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 100px);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 100px);
+}
 
 .the-best-h3 {
   text-align: left;

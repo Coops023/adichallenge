@@ -1,6 +1,7 @@
 .product-details-content {
   display: flex;
   flex-direction: column;
+  min-height: calc(100vh - 100px);
 }
 
 .product-details-container {
@@ -8,14 +9,6 @@
   margin-top: 2em !important;
   margin: auto 6%;
   text-align: left;
-}
-
-.go-back {
-  text-decoration: none;
-  color: rgba(10, 10, 10, 0.5);
-  position: relative;
-  right: 8em;
-  margin-top: 1em;
 }
 
 .name-price-wrap {
@@ -45,11 +38,11 @@
     margin-bottom: 4em;
   }
 }
-@media screen and (min-width: 425px) {
+/* @media screen and (min-width: 425px) {
   .go-back {
     right: 40%;
   }
-}
+} */
 
 @media screen and (min-width: 720px) {
   .product-details-container {

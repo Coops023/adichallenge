@@ -23,14 +23,19 @@
 
 .p-main {
   color: rgba(16, 16, 16, 0.8);
+  text-align: center;
 }
 
 @media screen and (min-width: 350px) {
   .header-background {
     height: 50vh;
     background-position-y: 0em;
-    background-position-x: -5em;
-    padding: 4em 2em 0em 2em;
+    /* background-position-x: -5em; */
+    padding: 2em 2em 0em 2em;
+  }
+
+  .p-main {
+    font-size: 0.8em;
   }
 }
 @media screen and (min-width: 650px) {

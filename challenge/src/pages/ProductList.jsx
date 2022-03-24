@@ -5,6 +5,7 @@ import ProductCard from "../components/ProductCard";
 import "./ProductList.css";
 import ReactPaginate from "react-paginate";
 import Hero from "../components/Hero";
+import GoBackBtn from "../components/GoBackBtn";
 
 export default function ProductList() {
   const [error, setError] = useState(null);
@@ -62,18 +63,28 @@ export default function ProductList() {
   };
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return (
+      <>
+        <GoBackBtn />
+        <div className="error">
+          <img src="/emptybox.png" alt="error" width={100} />
+          <h5>Oops! Something went wrong</h5>
+        </div>
+      </>
+    );
   } else if (!isLoaded) {
     return (
-      <div class="d-flex justify-content-center">
-        <div class="spinner-border" role="status">
-          <span class="sr-only"></span>
+      <div className="loading">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border" role="status">
+            <span class="sr-only"></span>
+          </div>
         </div>
       </div>
     );
   } else {
     return (
-      <>
+      <div className="product-list-container">
         <Hero />
         <h3 className="the-best-h3">The best from adidas</h3>
         <div className="card-container">{displayItems}</div>
@@ -88,7 +99,7 @@ export default function ProductList() {
           disabledClassName={"pagination-disabled"}
           activeClassName={"pagination-active"}
         />
-      </>
+      </div>
     );
   }
 }

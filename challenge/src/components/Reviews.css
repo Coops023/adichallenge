@@ -18,11 +18,12 @@ review-list-container {
 
 .no-review-text {
   text-align: left;
-  margin-left: 1.8em;
+  margin-left: 6%;
 }
 
 .review-card {
   margin-top: 1em;
+  margin-left: 1%;
 }
 
 .rating-container p {
@@ -62,20 +63,3 @@ review-list-container {
   /* color: #ffb703; */
   color: black;
 }
-@media screen and (min-width: 768px) {
-}
-
-/* @media screen and (min-width: 820px) {
-  .review-card {
-    text-align: left;
-    margin-left: 4.2em;
-  }
-  .review-heading {
-    text-align: left;
-    margin-left: 3.2em;
-  }
-
-  .pagination-review {
-    margin-left: 4em;
-  }
-} */

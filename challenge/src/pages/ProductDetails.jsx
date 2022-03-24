@@ -5,6 +5,7 @@ import "./ProductDetails.css";
 
 import { useParams } from "react-router-dom";
 import Reviews from "../components/Reviews";
+import GoBackBtn from "../components/GoBackBtn";
 
 export default function ProductDetails() {
   const navigate = useNavigate();
@@ -32,21 +33,30 @@ export default function ProductDetails() {
   }, []);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return (
+      <>
+        <GoBackBtn />
+
+        <div className="error">
+          <img src="/emptybox.png" alt="error" width={100} />
+          <h5>Oops! Something went wrong</h5>
+        </div>
+      </>
+    );
   } else if (!isLoaded) {
     return (
-      <div class="d-flex justify-content-center">
-        <div class="spinner-border" role="status">
-          <span class="sr-only"></span>
+      <div className="loading">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border" role="status">
+            <span class="sr-only"></span>
+          </div>
         </div>
       </div>
     );
   } else {
     return (
       <div className="product-details-content">
-        <Link className="go-back" onClick={() => navigate(-1)} to="#">
-          Go Back
-        </Link>
+        <GoBackBtn />
         <div className="product-details-container">
           <img className="product-img" src={item.imgUrl} alt="product" />
           <div className="detail-text-wrap">
