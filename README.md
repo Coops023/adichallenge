@@ -13,14 +13,15 @@ This will let you use the app and the api locally.
 ## Main challenges
 
 #### CORS Error's when making request's to API
+
 My initial solution to these errors was to use a google chrome extension called allow CORS. However after coming to the conclusion that these errors maybe intentional, i realised a google chrome extension is not a suitable solution. This is because when running the app on other browsers the error's would still show. So my next solution was to use the [http-proxy-middleware package](https://www.npmjs.com/package/http-proxy-middleware#install). This package allowed me to create a middleware that proxies both API end points, and therefor resulted in no CORS error's.
 
 
 ### Duplicate data
+
 When making a GET request to the `/product` API endpoint, data sent back contained duplicates. I solved this by passing the data received through a variable called `uniqueItems` on line 29 of `ProductList.jsx`. 
 After referring to the mdn documentation i found that `Map` maintains key uniqueness, meaning that there can be no more than one key-value pair with the same key. Airing on the side of caution i chose this approach rather than to use the API endpoint `delete` `/product/{id}` to delete duplicates. I believe deleting data this way in a real world application could result in unwanted data loss.
-=======
-`cd challenge` to change directory to the react-app.
+
 
 
 ## What i would improve with more time
