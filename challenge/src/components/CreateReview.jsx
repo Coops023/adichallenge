@@ -5,6 +5,7 @@ import "./CreateReview.css";
 import StarRating from "./StarRating";
 
 export default function CreateReview(props) {
+  //function that when called lifts state of the amount of stars given for a review so that value can be used when posting a review
   const starValueHandler = (number) => {
     props.ratingChangeHandler(number);
   };

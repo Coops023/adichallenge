@@ -18,10 +18,12 @@ export default function Reviews(props) {
   const [productId, setProductId] = useState(id);
   const [locale, setLocale] = useState("");
 
+  //pagination variables
   const [pageNumber, setPageNumber] = useState(0);
   const reviewsPerPage = 4;
   const pagesVisited = pageNumber * reviewsPerPage;
 
+  //useEffect to make a GET request for the reviews
   useEffect(() => {
     axios.get(`/api2/reviews/${id}`).then((response) => {
       // console.log("response from review API", response);
@@ -30,6 +32,7 @@ export default function Reviews(props) {
     });
   }, []);
 
+  //condtional statement to render the form based on showForms boolean value
   const showFormHandler = (e) => {
     e.preventDefault();
     if (!showForm) {
@@ -39,10 +42,11 @@ export default function Reviews(props) {
     }
   };
 
+  //this function is called when a new review is submitted. I used async await on the POST request to prevent a race condition occuring
   const formSubmitHandler = async (e) => {
     e.preventDefault();
     const requestBody = { productId, locale, rating, text };
-    console.log("requestbody", requestBody);
+    // console.log("requestbody", requestBody);
 
     await axios.post(`/api2/reviews/${productId}`, requestBody);
     axios.get(`/api2/reviews/${id}`).then((response) => {
@@ -53,6 +57,8 @@ export default function Reviews(props) {
     });
   };
 
+  // this variable stores a function that paginates the reviews
+  // the new Array method is used to render the value of the stars as star icons
   const displayReviews = reviews
     .slice(pagesVisited, pagesVisited + reviewsPerPage)
     .map((review, index) => {
@@ -72,9 +78,12 @@ export default function Reviews(props) {
     setPageNumber(selected);
   };
 
+  // sets the input value
   const textChangeHandler = (e) => {
     setText(e.target.value);
   };
+
+  //ratingChangeHandler function that is passed down to the createReview component to get the value of the number of stars selected for a review
   const ratingChangeHandler = (number) => {
     // console.log("lift", number);
     setRating(number);

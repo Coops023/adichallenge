@@ -1,5 +1,6 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
+// the proxy middleware used to solve the CORS errors i was getting when making API requests
 module.exports = function (app) {
   app.use(
     createProxyMiddleware("/api1", {
