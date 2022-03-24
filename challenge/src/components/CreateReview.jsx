@@ -13,7 +13,7 @@ export default function CreateReview(props) {
     <div className="create-review-container">
       {!props.showForm ? (
         <form className="review-btn-form">
-          <button className="review-button" onClick={props.showFormHandler}>
+          <button className="form-show-button" onClick={props.showFormHandler}>
             Leave a review
           </button>
         </form>
