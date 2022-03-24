@@ -8,6 +8,7 @@ import Reviews from "../components/Reviews";
 import GoBackBtn from "../components/GoBackBtn";
 
 export default function ProductDetails() {
+  //`useNavigate` hook for use in the goBack button 
   const navigate = useNavigate();
 
   //  use the `useParams` hook here to access
@@ -31,7 +32,7 @@ export default function ProductDetails() {
         setError(error);
       });
   }, []);
-
+  // conditinal if statement to render either an error, a loading spinner or the product details content
   if (error) {
     return (
       <>

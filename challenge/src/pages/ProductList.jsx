@@ -8,12 +8,14 @@ import Hero from "../components/Hero";
 import GoBackBtn from "../components/GoBackBtn";
 
 export default function ProductList() {
+//state variables used for error handling, loading and 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-  const [pageNumber, setPageNumber] = useState(0);
+  
 
   //variables used in displayItems pagination function
+  const [pageNumber, setPageNumber] = useState(0);
   const itemsPerPage = 10;
   const pagesVisited = pageNumber * itemsPerPage;
 
@@ -23,12 +25,13 @@ export default function ProductList() {
       .get(`/api1/product`)
       .then((response) => {
         //the data set provided from the API gave duplicates, so here i have created a variable called uniqueItems which returns an array of objects without duplicates
-        console.log("response", response.data);
+        // console.log("response", response.data);
         const uniqueItems = [
           ...new Map(
             response.data.map((item) => [JSON.stringify(item), item])
           ).values(),
         ];
+        //here the items variable is setting the value of unique items
         setItems(uniqueItems);
         setIsLoaded(true);
       })
@@ -37,7 +40,7 @@ export default function ProductList() {
       });
   }, []);
 
-  // displayItems is used in the pagination of the products that are fetched from the api
+  // displayItems is used in the pagination of the products that are fetched from the api. it works by using the Array.slice() method taking some variables declared on lines 18-20 as values to determine where the array is sliced. Then the array is mapped over to render values from the array.
   const displayItems = items
     .slice(pagesVisited, pagesVisited + itemsPerPage)
     .map((item) => {
@@ -56,8 +59,10 @@ export default function ProductList() {
       );
     });
 
+    //pageCount rounds up the recieved values to ensure a single intiger can be rendered in the pagination 
   const pageCount = Math.ceil(items.length / itemsPerPage);
 
+  //page changing function for the pagination
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
