@@ -5,9 +5,11 @@ git clone this repository onto your machine
 
 ensure you have docker installed and run `docker-compose up` in root directory 
 
-then `cd challenge` to change diretory to the react-app
-then `npm install` to install dependecies 
-then `npm run start` to start the react-app
+`cd challenge` to change diretory to the react-app.
+
+`npm install` to install dependecies. 
+
+`npm run start` to start the react-app
 
 This will let you use the app and the api locally
 
